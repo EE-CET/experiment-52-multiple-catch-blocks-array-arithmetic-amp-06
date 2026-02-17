@@ -1,33 +1,39 @@
 import java.util.Scanner;
 
 public class MultipleCatch {
-    
-       public static void main(String args[])
-{
-	Scanner sc= new Scanner(System.in);
-	System.out.println("Enter no of elements in array");
-	int N=sc.nextInt();
-	int arr[]=new int [N];
-	System.out.println("Enter the elements of the array");
-	for(int i=0;i<N;i++)
-	{
-		arr[i]=sc.nextInt();
-	}
-	System.out.println("Index enter");
-	int index=sc.nextInt();
-	System.out.println("Enter divisor");
-	int divisor=sc.nextInt();
-	try{
-		int z=arr[index]/divisor;
-	}
-	catch (ArithmeticException e)
-        {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            // Input array size
+            int N = sc.nextInt();
+
+            // Create array
+            int[] arr = new int[N];
+
+            // Input N integers
+            for (int i = 0; i < N; i++) {
+                arr[i] = sc.nextInt();
+            }
+
+            // Input index
+            int index = sc.nextInt();
+
+            // Input divisor
+            int divisor = sc.nextInt();
+
+            // Perform division
+            int result = arr[index] / divisor;
+
+            System.out.println(result);
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Invalid Index");
+        } catch (ArithmeticException e) {
             System.out.println("Divide by zero error");
         }
-	catch(ArrayIndexOutOfBoundsException e)
-	{
-	System.out.println("Invalid index");
-	}
-	}
-    
+
+        sc.close();
+    }
 }
+
